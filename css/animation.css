@@ -1,0 +1,117 @@
+
+.view.is-active { animation: viewIn .5s cubic-bezier(.22,.61,.36,1) both; }
+
+@keyframes viewIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 
+   2. SCROLL REVEALS
+ */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity .7s cubic-bezier(.22,.61,.36,1),
+    transform .7s cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform;
+}
+.reveal[data-reveal="fade-up"]    { transform: translateY(28px); }
+.reveal[data-reveal="fade-down"]  { transform: translateY(-24px); }
+.reveal[data-reveal="fade-left"]  { transform: translateX(34px); }
+.reveal[data-reveal="fade-right"] { transform: translateX(-34px); }
+.reveal[data-reveal="zoom-in"]    { transform: scale(.94); }
+
+/* Visible state */
+.reveal.in-view {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* 
+   3. NAV LINK SHINE 
+ */
+.nav__link {
+  overflow: hidden;
+}
+.nav__link::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent 20%, rgba(192,95,52,.10) 50%, transparent 80%);
+  transform: translateX(-120%);
+  transition: transform .6s ease;
+  z-index: -1;
+}
+.nav__link:hover::before { transform: translateX(120%); }
+
+/* 
+   4. BUTTON 
+ */
+/* Download button icon nudge */
+.dl-btn svg { transition: transform .25s ease; }
+.dl-btn:hover svg { transform: translateY(2px); }
+
+/* Timeline badge  */
+.tl-group.in-view .tl-badge { animation: badgePop .55s cubic-bezier(.34,1.56,.64,1) both; }
+@keyframes badgePop {
+  0%   { transform: scale(.6); opacity: 0; }
+  100% { transform: scale(1);  opacity: 1; }
+}
+
+/* Achievement  */
+.ach__badge { position: relative; overflow: hidden; }
+.ach__badge::after {
+  content: ""; position: absolute; top: 0; left: -60%;
+  width: 40%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.6), transparent);
+  transform: skewX(-20deg);
+}
+.ach:hover .ach__badge::after { animation: shimmer .8s ease; }
+@keyframes shimmer {
+  from { left: -60%; }
+  to   { left: 130%; }
+}
+
+
+
+/* 
+   6. PROJECT FILTER 
+ */
+.proj {
+  transition: opacity .4s ease, transform .4s ease;
+}
+.proj.is-hidden {
+  display: none;
+}
+.proj.is-enter {
+  animation: projIn .45s cubic-bezier(.22,.61,.36,1) both;
+}
+@keyframes projIn {
+  from { opacity: 0; transform: translateY(16px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Hover lift for project cards */
+.proj:hover { transform: translateY(-4px); }
+
+/* 
+   7. TOP STRIP
+ */
+.top-strip {
+  background-size: 200% 100%;
+  animation: stripFlow 12s linear infinite;
+}
+@keyframes stripFlow {
+  from { background-position: 0% 0; }
+  to   { background-position: 200% 0; }
+}
+
+.reveal[data-delay] { transition-delay: 0ms; } /* base; JS sets real delay */
+
+@media (prefers-reduced-motion: reduce) {
+  .view.is-active,
+  .reveal,
+  .tl-group.in-view .tl-badge,
+  .proj.is-enter,
+  .top-strip { animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
