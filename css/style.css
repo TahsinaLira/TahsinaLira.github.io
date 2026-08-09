@@ -1,4 +1,6 @@
-
+*{
+  font-size: 16px;
+}
 :root {
   /* Surfaces */
   --bg:            #e9ebee;   
@@ -539,14 +541,14 @@ NAVIGATION
 }
 .ach__title {
   font-family: var(--serif); font-weight: 700; color: var(--ink);
-  font-size: 1.08rem; margin: 0 0 4px;
+  font-size: 16px; margin: 0 0 4px;
 }
 .ach__result { margin: 0 0 6px; font-style: italic; font-weight: 600; color: var(--teal-deep); }
-.ach__meta { margin: 0 0 2px; font-size: 14px; color: var(--ink-soft); font-style: italic; }
-.ach__k { text-decoration: underline; font-style: italic; color: var(--muted); }
-.ach__desc { margin: 8px 0 8px; color: var(--text); font-size: 14.5px; }
+.ach__meta { margin: 0 0 2px; font-size: 16px; color: var(--ink-soft); font-style: italic; }
+.ach__k {  font-style: italic; color: var(--muted); }
+.ach__desc { margin: 8px 0 8px; color: var(--text); font-size: 16px; }
 .ach__link {
-  display: inline-block; color: var(--rust); font-weight: 600; font-size: 14px;
+  display: inline-block; color: var(--rust); font-weight: 600; font-size: 16px;
   border-bottom: 1px solid transparent; transition: border-color .2s ease;
 }
 .ach__link:hover { border-color: var(--rust); }
