@@ -649,7 +649,7 @@ NAVIGATION
    TABLET / iPAD
     */
 
-@media (max-width: 900px) and (min-width: 721px) {
+@media (max-width: 1024px) and (min-width: 721px) {
 
   /* Hero */
   .hero__grid {
