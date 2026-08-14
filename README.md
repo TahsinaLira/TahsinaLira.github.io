@@ -10,7 +10,7 @@ This is my personal academic portfolio website.
 
 ## Live Website
 
-[Visit my portfolio]
+<a href="https://tahsinalira.github.io/">[Visit my portfolio]</a>
 
 
 
